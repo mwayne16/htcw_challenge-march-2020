@@ -1,56 +1,48 @@
-import React, { useEffect } from 'react';
-import { creatures } from './monsterConfig';
-import useMonsterGeneration from '../custom_hooks/useMonsterGeneration';
+import React from 'react';
 import useMonsterActions from '../custom_hooks/useMonsterActions';
-function Monsters() {
-  const [monsters, loading] = useMonsterGeneration(creatures);
-
-  useEffect(() => {
-    if (!loading) {
-      setInterval(() => {
-        monsters.splice(0, 1);
-      }, 3000);
-    }
-
-    return () => {};
-  }, [monsters]);
-  if (loading) {
-    return 'Loading...';
-  }
-  console.log(monsters);
+function Monsters(props) {
+  const monstersActions = useMonsterActions(props.monsters);
   return (
     <tbody>
-      {monsters.map(
-        ({
-          name,
-          type,
-          health,
-          maxHealth,
-          strength,
-          maxStrength,
-          special,
-          key
-        }) => (
-          <tr key={key}>
-            <td>{name}</td>
-            <td>{type}</td>
-            <td>{health}</td>
-            <td>{strength}</td>
-            <td>{special}</td>
+      {props.monsters.map((monster, i, array) => (
+        <tr key={i}>
+          <td>{monster.name}</td>
+          <td>{monster.type}</td>
+          <td>
+            {monster.strength} <p style={{ display: 'inline' }}>/</p>
+            {monster.maxStrength}
+          </td>
+          <td>
+            {monster.health} <p style={{ display: 'inline' }}>/</p>
+            {monster.maxHealth}
+          </td>
 
-            <td>
-              <div className="actions">
-                <h1>{maxHealth}</h1>
-                <span className="increase-health">Increase</span>
-                <span className="decrease-health">Decrease</span>
-                <span onClick className="delete-row">
-                  delete
-                </span>
-              </div>
-            </td>
-          </tr>
-        )
-      )}
+          <td>{monster.special}</td>
+          <td>
+            <div className="actions">
+              <h1>{monster.maxHealth}</h1>
+              <span
+                onClick={() => monstersActions.increaseHealth(monster)}
+                className="increase-health"
+              >
+                Increase
+              </span>
+              <span
+                onClick={() => monstersActions.decreaseHealth(monster)}
+                className="decrease-health"
+              >
+                Decrease
+              </span>
+              <span
+                onClick={() => monstersActions.deleteCreature(i, array)}
+                className="delete-row"
+              >
+                delete
+              </span>
+            </div>
+          </td>
+        </tr>
+      ))}
     </tbody>
   );
 }

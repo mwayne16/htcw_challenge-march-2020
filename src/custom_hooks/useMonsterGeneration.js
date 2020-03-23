@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react';
 import useDataFetching from './useDataFetching';
-
 function useMonsterGeneration(source) {
-  const [monsters, setMonsters] = useState();
+  const [monsters, setMonsters] = useState([]);
+  const [reset, setReset] = useState(false);
   const { results, loading } = useDataFetching(
     'https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.json'
   );
+
   const maxCount = 100;
   const generateValue = (min, max) =>
     Math.floor(Math.random() * (max - min + 1) + min);
   const generateKeyValues = arr => arr[Math.floor(Math.random() * arr.length)];
-  const generateName = arr => {
-    let names = generateKeyValues(arr);
-    return names;
-  };
+  const generateName = arr => generateKeyValues(arr);
   const generateMonster = (creature, key) => {
     return {
       key,
@@ -28,15 +26,20 @@ function useMonsterGeneration(source) {
   };
 
   useEffect(() => {
-    source.map(monster => {
-      let cachedMonsters = [];
-      for (let i = 0; i <= maxCount - 1; i++) {
-        monster = generateKeyValues(source);
-        cachedMonsters.push(generateMonster(monster, i));
-      }
-      return setMonsters([...cachedMonsters]);
-    });
-  }, [results]);
-  return [monsters, loading];
+    if (!loading) {
+      const storeCreature = async function() {
+        await source.map(monster => {
+          let cachedMonsters = [];
+          for (let i = 0; i <= maxCount - 1; i++) {
+            monster = generateKeyValues(source);
+            cachedMonsters.push(generateMonster(monster, i));
+          }
+          return setMonsters(cachedMonsters);
+        });
+      };
+      storeCreature();
+    }
+  }, [loading, reset]);
+  return { monsters, loading, setReset, reset };
 }
 export default useMonsterGeneration;

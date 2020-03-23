@@ -1,22 +1,28 @@
-import { useState, useEffect, useCallback } from 'react';
-
+import { useState, useCallback } from 'react';
 function useMonsterActions(initial) {
   const [value, setValue] = useState(initial);
-
   return {
     value,
     setValue,
-    increaseHealth: useCallback(
-      h => setValue(h < initial ? h++ : alert('Monster is already max Health')),
-      [initial]
+    increaseHealth: useCallback(creature => {
+      setValue(
+        creature.health < creature.maxHealth
+          ? creature.health++
+          : alert('Monster is already max Health!')
+      );
+    }, []),
+
+    decreaseHealth: useCallback(
+      creature =>
+        setValue(
+          creature.health >= 2
+            ? creature.health--
+            : alert('Your creature will perish if you proceed.')
+        ),
+      []
     ),
-    decreaseHealth: useCallback(h => setValue(h--), []),
     deleteCreature: useCallback(
-      index =>
-        setValue(v => {
-          v.splice(index, 1);
-          return v;
-        }),
+      (index, arr) => setValue(arr.splice(index, 1)),
       []
     )
   };

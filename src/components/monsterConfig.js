@@ -24,7 +24,7 @@ export const creatures = [
     special: null
   },
   {
-    type: 'RiverTroll',
+    type: 'River Troll',
     minStrength: 22,
     maxStrength: 65,
     minHealth: 60,
