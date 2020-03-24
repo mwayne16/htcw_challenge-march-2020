@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
-import useDataFetching from './useDataFetching';
+import { useState, useEffect } from "react";
+import useDataFetching from "./useDataFetching";
 function useMonsterGeneration(source) {
   const [monsters, setMonsters] = useState([]);
   const [reset, setReset] = useState(false);
   const { results, loading } = useDataFetching(
-    'https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.json'
+    "https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.json"
   );
 
   const maxCount = 100;
   const generateValue = (min, max) =>
     Math.floor(Math.random() * (max - min + 1) + min);
   const generateKeyValues = arr => arr[Math.floor(Math.random() * arr.length)];
-  const generateName = arr => generateKeyValues(arr);
   const generateMonster = (creature, key) => {
     return {
       key,
       type: creature.type,
-      name: generateName([...results]),
+      name: generateKeyValues([...results]),
       health: generateValue(creature.minHealth, creature.maxHealth),
       strength: generateValue(creature.minStrength, creature.maxStrength),
       maxHealth: creature.maxHealth,
       maxStrength: creature.maxStrength,
-      speacial: creature.special
+      speacial: creature.special,
+      src: creature.src
     };
   };
 

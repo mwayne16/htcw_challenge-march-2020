@@ -1,0 +1,26 @@
+p,
+h1,
+h2,
+h3 {
+  color: #fff;
+  display: inline;
+  font-size: 1em;
+}
+
+table {
+  margin: 0 auto;
+  background: #2e3b40;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+thead {
+  color: #fff;
+  text-align: left;
+}
+thead th {
+  padding-bottom: 1em;
+  font-size: 1.4em;
+}

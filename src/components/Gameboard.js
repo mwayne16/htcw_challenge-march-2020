@@ -3,11 +3,19 @@ import Monsters from './Monsters';
 import { creatures } from './monsterConfig';
 import useMonsterGeneration from '../custom_hooks/useMonsterGeneration';
 function Gameboard() {
+  const rollTheDice = (min, max) => {
+    let value = Math.floor(Math.random() * (max - min + 1) + min);
+    return alert(`You rolled a ${value}`);
+  };
+
   const { setReset, reset, ...props } = useMonsterGeneration(creatures);
   return (
     <main>
       <section id="gameboard">
         <div className="boardActions">
+          <span onClick={rollTheDice.bind(this, 1, 6)} className="roll-dice">
+            Roll The Dice
+          </span>
           <span onClick={() => setReset(!reset)} className="reset-board">
             Reset
           </span>

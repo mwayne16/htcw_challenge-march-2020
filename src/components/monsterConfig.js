@@ -5,7 +5,8 @@ export const creatures = [
     maxStrength: 80,
     minHealth: 50,
     maxHealth: 60,
-    special: null
+    special: null,
+    src: require('../assets/steamwitch.jpg')
   },
   {
     type: 'Dragon',
@@ -13,7 +14,8 @@ export const creatures = [
     maxStrength: 90,
     minHealth: 80,
     maxHealth: 90,
-    special: null
+    special: null,
+    src: require('../assets/dragon.png')
   },
   {
     type: 'Snake',
@@ -21,7 +23,8 @@ export const creatures = [
     maxStrength: 60,
     minHealth: 30,
     maxHealth: 90,
-    special: null
+    special: null,
+    src: require('../assets/steamsnake.jpg')
   },
   {
     type: 'River Troll',
@@ -29,6 +32,7 @@ export const creatures = [
     maxStrength: 65,
     minHealth: 60,
     maxHealth: 92,
-    special: null
+    special: null,
+    src: require('../assets/trollsteam.jpg')
   }
 ];
