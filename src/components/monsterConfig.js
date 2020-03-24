@@ -6,7 +6,7 @@ export const creatures = [
     minHealth: 50,
     maxHealth: 60,
     special: null,
-    src: require('../assets/steamwitch.jpg')
+    src: require('../assets/witchalt.jpg')
   },
   {
     type: 'Dragon',
@@ -15,7 +15,7 @@ export const creatures = [
     minHealth: 80,
     maxHealth: 90,
     special: null,
-    src: require('../assets/dragon.png')
+    src: require('../assets/steamdragon.jpg')
   },
   {
     type: 'Snake',

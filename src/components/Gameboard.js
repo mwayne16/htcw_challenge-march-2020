@@ -7,8 +7,9 @@ function Gameboard() {
     let value = Math.floor(Math.random() * (max - min + 1) + min);
     return alert(`You rolled a ${value}`);
   };
-
+  // Google font
   const { setReset, reset, ...props } = useMonsterGeneration(creatures);
+
   return (
     <main>
       <section id="gameboard">

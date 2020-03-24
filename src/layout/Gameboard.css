@@ -6,21 +6,127 @@ h3 {
   display: inline;
   font-size: 1em;
 }
-
+#gameboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 table {
   margin: 0 auto;
-  background: #2e3b40;
-  max-width: 1200px;
+  background: #8c8474;
+
   width: 100%;
-  padding: 2em;
   border-radius: 10px;
+  border-collapse: collapse;
+  vertical-align: middle;
 }
 
 thead {
-  color: #fff;
+  box-shadow: 0px 1px 0px 0px rgb(252, 252, 252) inset;
+  color: #f2f2f2;
+  border-radius: 10px;
   text-align: left;
+  height: 120px;
 }
 thead th {
-  padding-bottom: 1em;
-  font-size: 1.4em;
+  padding: 0 20px;
+  font-size: 1.3em;
+}
+
+tbody tr {
+  box-shadow: 0px 1px 0px 0px rgb(105, 105, 105) inset;
+}
+tbody tr:nth-child(even) {
+  background: rgba(115, 68, 50, 0.2);
+}
+tbody tr:nth-child(odd) {
+  background: rgba(46, 59, 64, 0.9);
+}
+tbody tr:nth-child(even) .strength-icon {
+  color: #262626;
+}
+
+tbody tr:nth-child(even) .health-icon {
+  color: rgba(242, 242, 242, 0.8);
+}
+tr td {
+  padding: 1em;
+}
+
+.actions span {
+  cursor: pointer;
+  margin: 0 3px;
+}
+span.increase-health {
+  color: #f2f2f2;
+}
+span.decrease-health {
+  color: #734432;
+}
+span.delete-row {
+  color: #262626;
+}
+.monster-strength,
+.monster-health {
+  position: relative;
+  top: 25px;
+}
+.monster-strength span {
+  display: inline-block;
+  margin: 0 auto;
+}
+.monster-health span {
+  display: inline-block;
+  margin: 0 -15px;
+}
+.monster-health p {
+  margin: 0 auto;
+  width: 50px;
+}
+.current-state {
+  position: relative;
+  font-size: 1.3em;
+  font-weight: 900;
+  color: #89ff89;
+  bottom: 5px;
+  right: 5px;
+}
+.max-state {
+  position: relative;
+  color: rgba(255, 255, 255, 0.5);
+  left: 5px;
+}
+.monster-type {
+  overflow: hidden;
+  position: relative;
+  max-width: 170px;
+}
+.monster-name {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(115, 68, 50, 0.8);
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+}
+td.monster-type img {
+  max-width: 170px;
+  transform: scale(1.6);
+  height: 190px;
+}
+.strength-icon {
+  color: #8c8474;
+  font-size: 2em;
+  position: relative;
+  bottom: 50px;
+  left: 45px;
+}
+.health-icon {
+  color: #734432;
+  font-size: 2em;
+  position: relative;
+  bottom: 50px;
+  left: 45px;
 }

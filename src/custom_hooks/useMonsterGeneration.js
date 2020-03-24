@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import useDataFetching from "./useDataFetching";
+import { useState, useEffect } from 'react';
+import useDataFetching from './useDataFetching';
 function useMonsterGeneration(source) {
   const [monsters, setMonsters] = useState([]);
   const [reset, setReset] = useState(false);
   const { results, loading } = useDataFetching(
-    "https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.json"
+    'https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.json'
   );
 
   const maxCount = 100;

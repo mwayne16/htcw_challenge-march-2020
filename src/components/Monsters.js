@@ -12,44 +12,46 @@ function Monsters(props) {
             <h1>{monster.name}</h1>
           </td>
           <td className="monster-type">
-            {/* <img src={`${monster.src}`} alt={`${monster.type} player card`} /> */}
-            <h1>{monster.type}</h1>
+            <img src={`${monster.src}`} alt={`${monster.type} player card`} />
+            <h1 className="monster-name">{monster.type}</h1>
           </td>
           <td className="monster-strength">
             <span>
-              <p className="current-state">{monster.strength}</p>/
+              <span className="strength-icon fas fa-fist-raised"></span>
+              <p className="current-state">{monster.strength}</p>
+              <p>/</p>
               <p className="max-state">{monster.maxStrength}</p>
             </span>
           </td>
           <td className="monster-health">
             <span>
-              <p className="current-state">{monster.health}</p>/
+              <span className="health-icon fas fa-first-aid"></span>
+              <p className="current-state">{monster.health}</p>
+              <p>/</p>
               <p className="max-state">{monster.maxHealth}</p>
             </span>
           </td>
           <td>{monster.special}</td>
 
-          <td>
-            <div className="actions">
-              <span
-                onClick={() => monstersActions.increaseHealth(monster)}
-                className="increase-health"
-              >
-                <p>Increase</p>
-              </span>
-              <span
-                onClick={() => monstersActions.decreaseHealth(monster)}
-                className="decrease-health"
-              >
-                <p>Decrease</p>
-              </span>
-              <span
-                onClick={() => monstersActions.deleteCreature(i, array)}
-                className="delete-row"
-              >
-                <p>Delete</p>
-              </span>
-            </div>
+          <td className="actions">
+            <span
+              onClick={() => monstersActions.increaseHealth(monster)}
+              className="increase-health"
+            >
+              <span className="fas fa-heartbeat"></span>
+            </span>
+            <span
+              onClick={() => monstersActions.decreaseHealth(monster)}
+              className="decrease-health"
+            >
+              <span className="fas fa-heart-broken"></span>
+            </span>
+            <span
+              onClick={() => monstersActions.deleteCreature(i, array)}
+              className="delete-row"
+            >
+              <span className="fas fa-minus-circle"></span>
+            </span>
           </td>
         </tr>
       ))}
