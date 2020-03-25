@@ -9,17 +9,17 @@ function Gameboard() {
   };
   // Google font
   const { setReset, reset, ...props } = useMonsterGeneration(creatures);
-
   return (
     <main>
       <section id="gameboard">
-        <div className="boardActions">
-          <span onClick={rollTheDice.bind(this, 1, 6)} className="roll-dice">
-            Roll The Dice
-          </span>
-          <span onClick={() => setReset(!reset)} className="reset-board">
-            Reset
-          </span>
+        <h1 className="board-title">HTCW March Coding Challenge</h1>
+        <div className="board-actions">
+          <div className="dice-roll " onClick={rollTheDice.bind(this, 1, 6)}>
+            <span className="fas fa-dice"></span>
+          </div>
+          <div className="board-reset" onClick={() => setReset(!reset)}>
+            <span className=" fas fa-undo-alt"></span>
+          </div>
         </div>
         <table>
           <thead>

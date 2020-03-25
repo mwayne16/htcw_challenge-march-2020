@@ -19,9 +19,11 @@ function useMonsterGeneration(source) {
       health: generateValue(creature.minHealth, creature.maxHealth),
       strength: generateValue(creature.minStrength, creature.maxStrength),
       maxHealth: creature.maxHealth,
+      minHealth: creature.minHealth,
       maxStrength: creature.maxStrength,
       speacial: creature.special,
-      src: creature.src
+      src: creature.src,
+      mood: 'Battle Ready'
     };
   };
 

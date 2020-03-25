@@ -9,7 +9,46 @@ h3 {
 #gameboard {
   max-width: 1200px;
   margin: 0 auto;
+  overflow-y: visible;
 }
+.board-title {
+  display: block;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 2em;
+}
+
+div.board-actions div {
+  cursor: pointer;
+  opacity: 0.8;
+  margin: 10px;
+  padding: 0.3em 0;
+  width: 150px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.7em;
+}
+div.board-actions div:hover {
+  opacity: 1;
+}
+.dice-roll {
+  display: inline-block;
+  color: #262626;
+  background: #f2f2f2;
+}
+
+.board-reset {
+  display: inline-block;
+  color: #fff;
+  background: #8c8474;
+}
+.board-reset span {
+  transition: 0.3s linear all;
+}
+.board-reset:hover span {
+  transform: rotate(-180deg);
+}
+
 table {
   margin: 0 auto;
   background: #8c8474;
@@ -100,19 +139,36 @@ span.delete-row {
   position: relative;
   max-width: 170px;
 }
-.monster-name {
+.monster-card {
   text-align: center;
   position: absolute;
   left: 0;
-  bottom: 0;
   width: 100%;
-  background: rgba(115, 68, 50, 0.8);
   color: #fff;
   height: 40px;
   line-height: 40px;
+  transition: 0.3s linear all;
+  background: rgba(115, 68, 50, 0.8);
+  height: 100%;
+}
+span.monster-card {
+  transition: 0.3s linear all;
+  top: 210px;
+}
+
+td.monster-type:hover span.monster-card {
+  top: 0px;
+  background: rgba(38, 38, 38, 0.8);
+}
+.monster-card p {
+  font-size: 0.9em;
+  display: block;
+}
+span.card-stats p:nth-child(4) {
+  font-size: 0.86em;
 }
 td.monster-type img {
-  max-width: 170px;
+  min-width: 170px;
   transform: scale(1.6);
   height: 190px;
 }

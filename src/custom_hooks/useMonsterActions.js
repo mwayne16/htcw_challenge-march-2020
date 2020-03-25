@@ -4,6 +4,7 @@ function useMonsterActions(initial) {
   return {
     value,
     setValue,
+
     increaseHealth: useCallback(creature => {
       setValue(
         creature.health < creature.maxHealth
@@ -21,6 +22,15 @@ function useMonsterActions(initial) {
         ),
       []
     ),
+    setMood: useCallback(
+      creature =>
+        setValue(
+          (creature.mood =
+            creature.health < creature.minHealth ? 'Weakened' : 'Battle Ready')
+        ),
+      []
+    ),
+
     deleteCreature: useCallback(
       (index, arr) => setValue(arr.splice(index, 1)),
       []

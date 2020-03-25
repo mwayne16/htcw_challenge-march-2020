@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useMonsterActions from '../custom_hooks/useMonsterActions';
 import '../layout/Gameboard.css';
 function Monsters(props) {
   const monstersActions = useMonsterActions(props.monsters);
-
   return (
     <tbody>
       {props.monsters.map((monster, i, array) => (
@@ -11,9 +10,23 @@ function Monsters(props) {
           <td>
             <h1>{monster.name}</h1>
           </td>
-          <td className="monster-type">
+          <td
+            onMouseEnter={monstersActions.setMood.bind(this, monster)}
+            className="monster-type"
+          >
             <img src={`${monster.src}`} alt={`${monster.type} player card`} />
-            <h1 className="monster-name">{monster.type}</h1>
+            <span className="monster-card">
+              <p>{monster.type}</p>
+              <span className="card-stats">
+                <p>Stats:</p>
+                <p>Strength: {monster.strength}</p>
+                <p>Health: {monster.health}</p>
+                <p>
+                  Mood: {''}
+                  {monster.mood}
+                </p>
+              </span>
+            </span>
           </td>
           <td className="monster-strength">
             <span>
