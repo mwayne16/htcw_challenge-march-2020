@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useMonsterActions from '../custom_hooks/useMonsterActions';
 import '../layout/Gameboard.css';
 function Monsters(props) {
