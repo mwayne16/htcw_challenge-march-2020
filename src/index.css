@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Gotu&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,4 +9,6 @@
 body {
   font-size: 1.5em;
   background: #262626;
+  /* font-family: 'Gotu', sans-serif; */
+  font-family: 'Annie Use Your Telescope', cursive;
 }

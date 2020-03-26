@@ -2,10 +2,11 @@ p,
 h1,
 h2,
 h3 {
-  color: #fff;
+  color: #f2f2f2;
   display: inline;
   font-size: 1em;
 }
+
 #gameboard {
   max-width: 1200px;
   margin: 0 auto;
@@ -104,6 +105,11 @@ span.decrease-health {
 span.delete-row {
   color: #262626;
 }
+.monster-name h1 {
+  letter-spacing: 3px;
+  font-weight: 100;
+  font-size: 1.3em;
+}
 .monster-strength,
 .monster-health {
   position: relative;
@@ -161,7 +167,8 @@ td.monster-type:hover span.monster-card {
   background: rgba(38, 38, 38, 0.8);
 }
 .monster-card p {
-  font-size: 0.9em;
+  font-size: 0.88em;
+  font-family: 'Gotu', sans-serif;
   display: block;
 }
 span.card-stats p:nth-child(4) {

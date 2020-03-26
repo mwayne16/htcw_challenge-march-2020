@@ -7,7 +7,7 @@ function Monsters(props) {
     <tbody>
       {props.monsters.map((monster, i, array) => (
         <tr key={i}>
-          <td>
+          <td className="monster-name">
             <h1>{monster.name}</h1>
           </td>
           <td
@@ -25,6 +25,7 @@ function Monsters(props) {
                   Mood: {''}
                   {monster.mood}
                 </p>
+                <p>Ability: {''}TBD</p>
               </span>
             </span>
           </td>
@@ -54,13 +55,13 @@ function Monsters(props) {
               <span className="fas fa-heartbeat"></span>
             </span>
             <span
-              onClick={() => monstersActions.decreaseHealth(monster)}
+              onClick={() => monstersActions.decreaseHealth(monster, i, array)}
               className="decrease-health"
             >
               <span className="fas fa-heart-broken"></span>
             </span>
             <span
-              onClick={() => monstersActions.deleteCreature(i, array)}
+              onClick={() => monstersActions.deleteCreature(monster, i, array)}
               className="delete-row"
             >
               <span className="fas fa-minus-circle"></span>
